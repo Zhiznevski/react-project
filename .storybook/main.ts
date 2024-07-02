@@ -20,18 +20,18 @@ const config: StorybookConfig = {
               'style-loader',
               {
                 loader: 'css-loader',
-                options: { importLoaders: 1 }
+                options: { importLoaders: 1 },
               },
               {
                 // Gets options from `postcss.config.js` in your project root
                 loader: 'postcss-loader',
-                options: { implementation: require.resolve('postcss') }
-              }
+                options: { implementation: require.resolve('postcss') },
+              },
             ],
-          }
-        ]
-      }
-    }
+          },
+        ],
+      },
+    },
   ],
   framework: {
     name: '@storybook/react-webpack5',

@@ -38,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseStyles} ${variantStyles} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      className={`${baseStyles} ${variantStyles} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
     >
       {children}
     </button>
