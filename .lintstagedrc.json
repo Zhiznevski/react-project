@@ -1,4 +1,4 @@
 {
-  "*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --check --write"],
-  "*.{css,scss}": ["prettier --write"]
+  "src/**/*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --check --write"],
+  "src/**/*.{css,scss}": ["prettier --write"]
 }
