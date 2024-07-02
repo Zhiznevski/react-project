@@ -8,8 +8,15 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'danger';
 };
 
-const Button: React.FC<ButtonProps> = ({ children, onClick, type = 'button', disabled = false, variant = 'primary' }) => {
-  let baseStyles = 'py-2 px-4 font-semibold rounded-lg shadow-md focus:outline-none';
+const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  type = 'button',
+  disabled = false,
+  variant = 'primary',
+}) => {
+  const baseStyles =
+    'py-2 px-4 font-semibold rounded-lg shadow-md focus:outline-none';
   let variantStyles = '';
 
   switch (variant) {

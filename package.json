@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
     "test": "jest",
     "prepare": "husky",
