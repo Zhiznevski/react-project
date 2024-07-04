@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+import clsx from 'clsx';
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -8,41 +9,30 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'danger';
 };
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  onClick,
-  type = 'button',
-  disabled = false,
-  variant = 'primary',
-}) => {
-  const baseStyles =
-    'py-2 px-4 font-semibold rounded-lg shadow-md focus:outline-none';
-  let variantStyles = '';
+export type Ref = HTMLButtonElement;
 
-  switch (variant) {
-    case 'primary':
-      variantStyles = 'bg-blue-500 text-white hover:bg-blue-700';
-      break;
-    case 'secondary':
-      variantStyles = 'bg-gray-500 text-white hover:bg-gray-700';
-      break;
-    case 'danger':
-      variantStyles = 'bg-red-500 text-white hover:bg-red-700';
-      break;
-    default:
-      variantStyles = 'bg-blue-500 text-white hover:bg-blue-700';
-  }
-
+const Button = forwardRef<Ref, ButtonProps>(function Button(
+  { children, disabled = false, variant = 'primary', ...props },
+  ref
+) {
   return (
     <button
-      type={type}
-      onClick={onClick}
+      ref={ref}
       disabled={disabled}
-      className={`${baseStyles} ${variantStyles} ${disabled ? 'cursor-not-allowed opacity-50' : ''}`}
+      className={clsx(
+        'rounded-lg px-4 py-2 font-semibold text-white shadow-md focus:outline-none',
+        {
+          'bg-blue-500 hover:bg-blue-700': variant === 'primary',
+          'bg-gray-500 hover:bg-gray-700': variant === 'secondary',
+          'bg-red-500 hover:bg-red-700': variant === 'danger',
+          'cursor-not-allowed opacity-50': disabled,
+        }
+      )}
+      {...props}
     >
       {children}
     </button>
   );
-};
+});
 
 export default Button;
