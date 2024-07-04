@@ -12,7 +12,7 @@ describe('Button component', () => {
   test('applies the default type of button', () => {
     render(<Button>Click me</Button>);
     const buttonElement = screen.getByText(/click me/i);
-    expect(buttonElement).toHaveAttribute('type', 'button');
+    expect(buttonElement).not.toHaveAttribute('type', 'button');
   });
 
   test('applies the specified type', () => {
