@@ -1,18 +1,14 @@
-import React, { forwardRef } from 'react';
-import clsx from 'clsx';
+import React, { ComponentProps, forwardRef } from 'react';
+import { clsx } from '@shared/lib/clsx';
 
-type ButtonProps = {
-  children: React.ReactNode;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
+interface ButtonProps extends ComponentProps<'button'> {
   variant?: 'primary' | 'secondary' | 'danger';
-};
+}
 
 export type Ref = HTMLButtonElement;
 
 const Button = forwardRef<Ref, ButtonProps>(function Button(
-  { children, disabled = false, variant = 'primary', ...props },
+  { children, disabled = false, variant = 'secondary', ...props },
   ref
 ) {
   return (
